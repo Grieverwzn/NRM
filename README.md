@@ -1,4 +1,7 @@
 # NRM
-本程序是用来解决网络收益管理的相关问题，包括席位控制优化和销售仿真。
-
-This procedure is used to solve some issues in the network revenue management (NRM), including seat inventory control policy optimization and simulation.
+This program is used to solve some issues in the network revenue management (NRM),   
+including seat inventory control policy optimization and simulation.
+The command below is supported:
+1. Read .xls file 
+2. Simulate booking process under 3 types of control: free control, bid price control and China Railway Company (CRC) Nesting control
+3. Analysis the simulation results
