@@ -1,13 +1,4 @@
 # NRM
-2017年3月22日21:11:57
-整理了系统代码，解开了数值计算（bid price）和仿真之间的耦合。
-下一步需要做两件事情：
-1、修改仿真的输出，采用XML读入需要反射，太慢了。
-2、完善数据生成，尽量让系统自己生成数据。
-————————————————————————————————————————
-2017年3月25日01:11:54
-增加了命令行支持
-————————————————————————————————————————
-2017年3月25日11:40:39
-仿真的输出改为文件式
+本程序是用来解决网络收益管理的相关问题，包括席位控制优化和销售仿真。
 
+This procedure is used to solve some issues in the network revenue management (NRM), including seat inventory control policy optimization and simulation.
