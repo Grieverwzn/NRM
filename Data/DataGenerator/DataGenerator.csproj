@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9348010-486B-4AC5-AE49-98FF0F268672}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataGenerator</RootNamespace>
+    <AssemblyName>DataGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Generator\RailDataGenerator.cs" />
+    <Compile Include="Reader\RailDataReader.cs" />
+    <Compile Include="Generator\Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\ExcelHelper\com.foxmail.wyyuan1991.Common.ExcelHelper.csproj">
+      <Project>{2dbc6da4-0f47-4a10-9d3f-e23412992a74}</Project>
+      <Name>com.foxmail.wyyuan1991.Common.ExcelHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\BasicModel\ALP\IALP.csproj">
+      <Project>{e8ed1fff-ad8e-4601-92fd-d913174ff9de}</Project>
+      <Name>IALP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\BasicModel\Common\INRM.csproj">
+      <Project>{ec798af0-986b-46f0-8ac1-5f0ef10bdc56}</Project>
+      <Name>INRM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\BasicModel\MDP\IMDP.csproj">
+      <Project>{d223b311-742b-44f0-a4af-427b8571e2b4}</Project>
+      <Name>IMDP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\RailwayModel\RailwayModel.csproj">
+      <Project>{ec6bc46e-257e-499c-8596-0378959a1532}</Project>
+      <Name>RailwayModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
