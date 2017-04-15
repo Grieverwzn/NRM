@@ -56,11 +56,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulator", "Simulation\Sim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimPolicy", "Simulation\SimPolicy\SimPolicy.csproj", "{AE709774-08FB-4176-A93A-981675AB4F50}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "说明", "说明", "{AA9CE561-CE26-48CE-AF90-0F8B8B10F21A}"
-	ProjectSection(SolutionItems) = preProject
-		开发记录.txt = 开发记录.txt
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CplexMultiThreadTest", "Appliation\CplexMultiThreadTest\CplexMultiThreadTest.csproj", "{8DACAFCA-10CA-45C0-A558-2F4CB0B509BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLine", "CommandLine", "{21CEF85C-6659-4C64-9A6D-63C36ADBC003}"
@@ -70,6 +65,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLine", "CommandLine"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRM Command", "Appliation\NRM Command\NRM Command.csproj", "{1B3FE642-7749-4F55-88A7-EBE5970F52D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA8EF15E-F59D-43E8-9B70-4DB7923F1B4A}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
