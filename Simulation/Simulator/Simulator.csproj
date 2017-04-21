@@ -45,8 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrivalSimulator.cs" />
-    <Compile Include="BookingSimulator.cs" />
+    <Compile Include="Model\ArrivalModel.cs" />
+    <Compile Include="Model\BookingModel.cs" />
+    <Compile Include="Model\Interface.cs" />
+    <Compile Include="Policy\BidPriceControl.cs" />
+    <Compile Include="Policy\CnNesting.cs" />
+    <Compile Include="Policy\OpenAll.cs" />
+    <Compile Include="SimAnalysis.cs" />
+    <Compile Include="Simulator\ArrivalSimulator.cs" />
+    <Compile Include="Simulator\BookingSimulator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +69,9 @@
       <Project>{ec798af0-986b-46f0-8ac1-5f0ef10bdc56}</Project>
       <Name>INRM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SimModel\SimModel.csproj">
-      <Project>{80d38342-20ec-4a5b-8d2d-5db20be54dcd}</Project>
-      <Name>SimModel</Name>
+    <ProjectReference Include="..\..\Model\RailwayModel\RailwayModel.csproj">
+      <Project>{ec6bc46e-257e-499c-8596-0378959a1532}</Project>
+      <Name>RailwayModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

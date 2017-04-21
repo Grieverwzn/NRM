@@ -81,18 +81,6 @@
       <Project>{ec6bc46e-257e-499c-8596-0378959a1532}</Project>
       <Name>RailwayModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Simulation\SimAnalysis\SimAnalysis.csproj">
-      <Project>{160876bf-687e-4d5d-a991-197a5b4e8170}</Project>
-      <Name>SimAnalysis</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Simulation\SimModel\SimModel.csproj">
-      <Project>{80d38342-20ec-4a5b-8d2d-5db20be54dcd}</Project>
-      <Name>SimModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Simulation\SimPolicy\SimPolicy.csproj">
-      <Project>{ae709774-08fb-4176-a93a-981675ab4f50}</Project>
-      <Name>SimPolicy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Simulation\Simulator\Simulator.csproj">
       <Project>{4e355e21-e898-4a3d-9e30-cf674e6ec7d7}</Project>
       <Name>Simulator</Name>
