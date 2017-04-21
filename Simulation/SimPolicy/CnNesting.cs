@@ -48,7 +48,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
                     string[] aa = a[4].Split(',');
                     foreach (string s in aa)
                     {
-                        train.LBucket.ProList.Add(m_DataAdapter.ProSpace.First(proid => proid.ProID == Convert.ToInt32(s)));
+                        train.LBucket.ProList.Add((m_DataAdapter.ProSpace as List<Product>).First(proid => proid.ProID == Convert.ToInt32(s)));
                     }
                     train.ProList.AddRange(train.LBucket.ProList);
                     res.NeedToRefresh.Add(train.LBucket);
@@ -59,7 +59,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
                     string[] aa = a[4].Split(',');
                     foreach (string s in aa)
                     {
-                        bucket.ProList.Add(m_DataAdapter.ProSpace.First(proid=>proid.ProID==Convert.ToInt32(s)));
+                        bucket.ProList.Add((m_DataAdapter.ProSpace as List<Product>).First(proid=>proid.ProID==Convert.ToInt32(s)));
                     }
                     train.Buckets.Add(bucket);
                     res.NeedToRefresh.Add(bucket);
@@ -119,14 +119,14 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         internal SeatSet Seats = new SeatSet();
         internal List<IProduct> ProList = new List<IProduct>(); //所有能出售的产品
         internal List<IProduct> OpenProduct = new List<IProduct>();
-
+        //查找最零散的可售产品
         private List<IMetaResource> getMetaRes(ResouceState r, IProduct p)
         {
             List<IMetaResource> res = new List<IMetaResource>();
             //找到出售一个产品的资源，如果不可售返回空
             foreach (Seat s in Seats)
             {
-                if (p.All(i => s.getMetaByRes(i) != null && r.MetaResDic[s.getMetaByRes(i)] == false))
+                if (p.All(i => s.getMetaByRes(i) != null && r.MetaResDic[s.getMetaByRes(i)] == false))//有待优化
                 {
                     foreach (IResource re in p)
                     {

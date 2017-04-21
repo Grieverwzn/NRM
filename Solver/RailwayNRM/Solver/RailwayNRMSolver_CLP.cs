@@ -116,7 +116,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwaySolver
             deci_a = null;
 
             #region  贪婪算法求解组合优化问题
-            List<Product> list = Data.ProSpace.Where(i =>
+            List<Product> list = (Data.ProSpace as List<Product>).Where(i =>
             {
                 double w = bidprice(t, i);
                 if (i.Fare < w)
@@ -316,7 +316,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwaySolver
                 }
                 #region w小于0的路径
                 string ss = "";
-                foreach (Route h in Data.pathList)
+                foreach (Route h in Data.RouteList)
                 {
                     double temp = h.TicketPrice;
                     foreach (Resource r in Data.RS)
@@ -326,7 +326,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwaySolver
                             temp -= V[t][Data.RS.IndexOf(r)];
                         }
                     }
-                    if (temp > 0) ss += Data.pathList.IndexOf(h) + ",";
+                    if (temp > 0) ss += Data.RouteList.IndexOf(h) + ",";
                 }
                 #endregion
                 print("Time:{0},Number of Bounded Constraints:{1}/{2} | {3} | {4}", t, i, b.Length, s, ss);

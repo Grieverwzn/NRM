@@ -39,7 +39,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         System.Random rng = SystemRandomSource.Default;//随机数发生器
 
         public IMarket MarketInfo { get; set; }
-        public IResourceSet ResourceSpace { get; set; }
+        //public IResourceSet ResourceSpace { get; set; }
         public IController Controller { get; set; }
         public ResouceState InitState { get; set; }
 

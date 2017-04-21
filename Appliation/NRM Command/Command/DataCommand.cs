@@ -51,7 +51,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             warpper.da.MarketInfo = dg.mar;
             warpper.da.ProSpace = dg.proset;
             warpper.da.ResSpace = dg.ResSet;
-            warpper.da.pathList = dg.pathList;
+            warpper.da.RouteList = dg.pathList;
             warpper.da.TimeHorizon = dg.TimeHorizon;
             warpper.da.InitState = dg.InitState;
             warpper.da.InitialState = warpper.da.CreateOrFind(warpper.da.GenInitialState(dg.InitState));
@@ -60,7 +60,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             Console.WriteLine("问题生成结束! ");
             Console.Write("资源数量:{0},", warpper.da.ResSpace.Count);
             Console.Write("产品数量:{0},", warpper.da.ProSpace.Count);
-            Console.Write("路径数量:{0},", warpper.da.pathList.Count);
+            Console.Write("路径数量:{0},", warpper.da.RouteList.Count);
             Console.Write("市场数量:{0},", warpper.da.MarketInfo.Count);
             Console.WriteLine("时段数量:{0}", warpper.da.TimeHorizon);
         }
@@ -211,7 +211,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             BPC.ReadFromTXT(ctlPath);
 
             warpper.bookSim.MarketInfo = warpper.da.MarketInfo;
-            warpper.bookSim.ResourceSpace = warpper.da.ResSpace as IResourceSet;
+            //warpper.bookSim.ResourceSpace = warpper.da.ResSpace as IResourceSet;
             warpper.bookSim.Controller = BPC;
             warpper.bookSim.InitState = warpper.da.InitState;
             warpper.bookSim.SimTextWriter = Console.Out;
@@ -250,7 +250,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             };
 
             warpper.bookSim.MarketInfo = warpper.da.MarketInfo;
-            warpper.bookSim.ResourceSpace = warpper.da.ResSpace as IResourceSet;
+            //warpper.bookSim.ResourceSpace = warpper.da.ResSpace as IResourceSet;
             warpper.bookSim.Controller = OAS;
             warpper.bookSim.SimTextWriter = Console.Out;
             warpper.bookSim.NumOfThreads = NumberOfThreads;
@@ -292,7 +292,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             };
 
             warpper.bookSim.MarketInfo = warpper.da.MarketInfo;
-            warpper.bookSim.ResourceSpace = warpper.da.ResSpace as IResourceSet;
+            //warpper.bookSim.ResourceSpace = warpper.da.ResSpace as IResourceSet;
             warpper.bookSim.Controller = CnNesting;
             warpper.bookSim.SimTextWriter = Console.Out;
             warpper.bookSim.NumOfThreads = NumberOfThreads;

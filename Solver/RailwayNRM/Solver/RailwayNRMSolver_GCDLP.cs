@@ -251,7 +251,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwaySolver
             deci_a = null;
 
             #region  贪婪算法求解组合优化问题
-            List<Product> list = Data.ProSpace.Where(i =>
+            List<Product> list = (Data.ProSpace as List<Product>).Where(i =>
             {
                 double w = bidprice(t, i);
                 if (i.Fare < w)

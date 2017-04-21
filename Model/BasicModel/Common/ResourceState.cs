@@ -14,14 +14,11 @@ namespace com.foxmail.wyyuan1991.NRM.Common
 
         public ResouceState(ResouceState rs)
         {
-            foreach (IResource r in rs.ResDic.Keys)
-            {
-                ResDic.Add(r, rs.ResDic[r]);
-            }
             foreach (IMetaResource r in rs.MetaResDic.Keys)
             {
                 MetaResDic.Add(r, rs.MetaResDic[r]);
             }
+            UpdateResDic();
         }
         public ResouceState()
         {

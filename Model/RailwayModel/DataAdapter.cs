@@ -10,14 +10,11 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
 {
     public class NRMDataAdapter : IALPFTMDP, IFTMDP, IDisposable
     {
-        public List<Route> pathList { get; set; }
-        public List<Product> ProSpace { get; set; }
-        public Market MarketInfo { get; set; }
-
-        //public IALPResourceSpace ResSpace { get; set; }
-        public ResourceSet ResSpace { get; set; }
         public MetaResourceSet MetaResSpace { get; set; }
-
+        public ResourceSet ResSpace { get; set; }
+        public List<Route> RouteList { get; set; }
+        public ProductSet ProSpace { get; set; }
+        public Market MarketInfo { get; set; }
         public ResouceState InitState { get; set; }
 
         #region 实现IMdpDataAdapter
@@ -332,7 +329,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
         private List<Route> suppRoute(HashSet<IProduct> proset)
         {
             List<Route> res = new List<Route>();
-            foreach (Route r in pathList)
+            foreach (Route r in RouteList)
             {
                 if (r.All(i => proset.Contains(i)))
                 {
@@ -352,7 +349,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
                 if (disposing)
                 {
                     // TODO: 释放托管状态(托管对象)。
-                    pathList = null;
+                    RouteList = null;
                     ProSpace = null;
                     MarketInfo = null;
                     ResSpace = null;
