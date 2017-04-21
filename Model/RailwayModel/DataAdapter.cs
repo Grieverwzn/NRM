@@ -14,8 +14,8 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
         public List<Product> ProSpace { get; set; }
         public Market MarketInfo { get; set; }
 
-        public IALPResourceSpace ResSpace { get; set; }
-        //public IMetaResourceSet MetaResSpace { get; set; }
+        //public IALPResourceSpace ResSpace { get; set; }
+        public ResourceSet ResSpace { get; set; }
         public MetaResourceSet MetaResSpace { get; set; }
 
         public ResouceState InitState { get; set; }

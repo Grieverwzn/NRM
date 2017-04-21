@@ -178,7 +178,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
                    //openProductList = CG(time, rs);//this.OPL(time, rs);new HashSet<Product>(openProductList);
                     _ss = CG(time, rs); 
                     d = new Decision(_ss);
-                    c = DataAdapter.ResSpace.AsParallel().Sum(i => DataAdapter.Qti(time, i, d));
+                    c = (DataAdapter.ResSpace as IALPResourceSpace).Sum(i => DataAdapter.Qti(time, i, d));
                     a += c * len;
                     //Console.WriteLine("Interval={0},a={1}", interval, a);
                 //}
