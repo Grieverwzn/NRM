@@ -56,10 +56,6 @@
       <Project>{ec798af0-986b-46f0-8ac1-5f0ef10bdc56}</Project>
       <Name>INRM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Model\BasicModel\MDP\IMDP.csproj">
-      <Project>{d223b311-742b-44f0-a4af-427b8571e2b4}</Project>
-      <Name>IMDP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SimModel\SimModel.csproj">
       <Project>{80D38342-20EC-4A5B-8D2D-5DB20BE54DCD}</Project>
       <Name>SimModel</Name>

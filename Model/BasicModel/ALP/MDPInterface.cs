@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace com.foxmail.wyyuan1991.MDP
+namespace com.foxmail.wyyuan1991.NRM.ALP
 {
     /// <summary>
     /// MDP问题中的状态

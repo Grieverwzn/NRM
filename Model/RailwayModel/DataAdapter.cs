@@ -1,5 +1,4 @@
-﻿using com.foxmail.wyyuan1991.MDP;
-using com.foxmail.wyyuan1991.NRM.ALP;
+﻿using com.foxmail.wyyuan1991.NRM.ALP;
 using com.foxmail.wyyuan1991.NRM.Common;
 using System;
 using System.Collections.Generic;
