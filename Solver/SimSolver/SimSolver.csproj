@@ -4,24 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BD285507-3416-456F-8B8A-7770CBEF5914}</ProjectGuid>
+    <ProjectGuid>{CC0616BF-26D3-4A7E-9790-51E11B12162C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.foxmail.wyyuan1991.NRM.RailwaySolver</RootNamespace>
-    <AssemblyName>RailwayNRM</AssemblyName>
+    <RootNamespace>SimSolver</RootNamespace>
+    <AssemblyName>SimSolver</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -29,10 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,20 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ILOG.Concert">
-      <HintPath>..\..\Lib\CPLEX125\ILOG.Concert.dll</HintPath>
-    </Reference>
-    <Reference Include="ILOG.CPLEX">
-      <HintPath>..\..\Lib\CPLEX125\ILOG.CPLEX.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,25 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RailwayNRMSolver_CLP.cs" />
+    <Compile Include="SimSolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RailwayNRMSolver_DD.cs" />
-    <Compile Include="RailwayNRMSolver.cs" />
-    <Compile Include="RailwayNRMSolver_GCDLP.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lib\ExcelHelper\com.foxmail.wyyuan1991.Common.ExcelHelper.csproj">
-      <Project>{2dbc6da4-0f47-4a10-9d3f-e23412992a74}</Project>
-      <Name>com.foxmail.wyyuan1991.Common.ExcelHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Lib\ParallelExtensionsExtras\ParallelExtensionsExtras.csproj">
-      <Project>{c45218f8-09e7-4f57-85bc-5d8d2ac736a3}</Project>
-      <Name>ParallelExtensionsExtras</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Model\BasicModel\ALP\IALP.csproj">
-      <Project>{e8ed1fff-ad8e-4601-92fd-d913174ff9de}</Project>
-      <Name>IALP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Model\BasicModel\Common\INRM.csproj">
       <Project>{ec798af0-986b-46f0-8ac1-5f0ef10bdc56}</Project>
       <Name>INRM</Name>
@@ -88,9 +51,9 @@
       <Project>{ec6bc46e-257e-499c-8596-0378959a1532}</Project>
       <Name>RailwayModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NRMSolver\NRMSolver.csproj">
-      <Project>{f76e88a0-2f8e-4eea-8270-caef3c71ddc0}</Project>
-      <Name>NRMSolver</Name>
+    <ProjectReference Include="..\..\Simulation\Simulator\Simulator.csproj">
+      <Project>{4e355e21-e898-4a3d-9e30-cf674e6ec7d7}</Project>
+      <Name>Simulator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
