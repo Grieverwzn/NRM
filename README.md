@@ -5,3 +5,6 @@ The command below is supported:
 * Read .xls file 
 * Simulate booking process under 3 types of control: free control, bid price control and China Railway Company (CRC) Nesting control
 * Analysis the simulation results
+
+Branch1
+Start to consider passengers' waiting.
