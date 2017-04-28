@@ -109,7 +109,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             }
         }
         public double[][] BidPrice;//[时间][资源编号] 的投标价格
-        public List<IProduct> OpenProductList(int time, ResouceState r, IConOL cl)
+        public List<IProduct> OpenProductList(int time, MetaResouceState r, IConOL cl)
         {
             List<IProduct> res = new List<IProduct>();
 
@@ -123,7 +123,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             }
             return res;
         }
-        public List<Product> OPL(int time, ResouceState r)
+        public List<Product> OPL(int time, MetaResouceState r)
         {
             List<Product> res = new List<Product>();
 
@@ -149,7 +149,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         {
            
             double a = 0; double b = 0; double c = 0;
-            ResouceState rs = new ResouceState(DataAdapter.InitState);
+            MetaResouceState rs = new MetaResouceState(DataAdapter.InitState);
             //List<Product> openProductList; //= DataAdapter.ProSpace;
 
             HashSet<IProduct> _ss=new HashSet<IProduct>() ;
@@ -259,7 +259,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         }
         #endregion 
    
-        private HashSet<IProduct> CG(int t, ResouceState r)
+        private HashSet<IProduct> CG(int t, MetaResouceState r)
         {
             #region  贪婪算法求解组合优化问题
             List<IProduct> list = new List<IProduct>(DataAdapter.ProSpace);//优先关闭机会成本低的产品
@@ -327,7 +327,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
              return DataAdapter.Rt(t, d);
         }
 
-        public List<Ticket> PrintTickets(ResouceState rs, List<IProduct> pro,IConOL cl)
+        public List<Ticket> PrintTickets(MetaResouceState rs, List<IProduct> pro,IConOL cl)
         {
             List<Ticket> res = new List<Ticket>();
             foreach (IProduct p in pro)//一张一张卖

@@ -7,12 +7,12 @@ namespace com.foxmail.wyyuan1991.NRM.Common
     /// <summary>
     /// 系统的剩余资源状态，对于每个资源都有一个整数表示剩余数量
     /// </summary>
-    public class ResouceState
+    public class MetaResouceState
     {
         public Dictionary<IResource, int> ResDic = new Dictionary<IResource, int>();
         public Dictionary<IMetaResource, bool> MetaResDic = new Dictionary<IMetaResource, bool>();//false表示未售出
 
-        public ResouceState(ResouceState rs)
+        public MetaResouceState(MetaResouceState rs)
         {
             foreach (IMetaResource r in rs.MetaResDic.Keys)
             {
@@ -20,7 +20,7 @@ namespace com.foxmail.wyyuan1991.NRM.Common
             }
             UpdateResDic();
         }
-        public ResouceState()
+        public MetaResouceState()
         {
 
         }

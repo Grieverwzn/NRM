@@ -23,7 +23,7 @@ namespace com.foxmail.wyyuan1991.NRM.Data
         public ResourceSet ResSet { get { return MRS.ResSet as ResourceSet; } }
         public List<Route> pathList;
         public int TimeHorizon { get; set; }
-        public ResouceState InitState { get; set; }
+        public MetaResouceState InitState { get; set; }
         public MetaResourceSet MRS { get; set; }
 
         public void ReadXLS(string path)
@@ -57,7 +57,7 @@ namespace com.foxmail.wyyuan1991.NRM.Data
                 ResSet = new ResourceSet(),
                 SeatSet = new SeatSet()
             };
-            InitState = new ResouceState();
+            InitState = new MetaResouceState();
             string temp = "";
             List<Seat> tempSeat = null;
             foreach (DataRow dr in Res.Rows)

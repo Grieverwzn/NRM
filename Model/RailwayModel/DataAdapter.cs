@@ -14,7 +14,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
         public List<Route> RouteList { get; set; }
         public ProductSet ProSpace { get; set; }
         public Market MarketInfo { get; set; }
-        public ResouceState InitState { get; set; }
+        public MetaResouceState InitState { get; set; }
 
         #region 实现IMdpDataAdapter
         private IMDPDecisionSpace _ds = new DecisionSpace();
@@ -132,7 +132,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
                 return res as IALPState;
             }
         }
-        public IALPState CreateOrFind(ResouceState RecDic)
+        public IALPState CreateOrFind(MetaResouceState RecDic)
         {
             State state = new State();
             foreach (Resource ts in this.ResSpace)
@@ -244,7 +244,7 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
         //    //_ss.Add(GenZeroState());
         //    _ss.Add(state);
         //}
-        public IMDPState GenInitialState(ResouceState s)
+        public IMDPState GenInitialState(MetaResouceState s)
         {
             State state = new State();
             foreach (Resource ts in ResSpace)

@@ -22,7 +22,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             }
         }
 
-        public List<IProduct> OpenProductList(int time, ResouceState r, IConOL cl)
+        public List<IProduct> OpenProductList(int time, MetaResouceState r, IConOL cl)
         {
             List<IProduct> OpenProductList = new List<IProduct>();
             foreach (IProduct p in DataAdapter.ProSpace)
@@ -46,7 +46,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         {
             return null;
         }
-        public List<Ticket> PrintTickets(ResouceState rs, List<IProduct> pro, IConOL cl)
+        public List<Ticket> PrintTickets(MetaResouceState rs, List<IProduct> pro, IConOL cl)
         {
             List<Ticket> res = new List<Ticket>();
             foreach (IProduct p in pro)//一张一张卖

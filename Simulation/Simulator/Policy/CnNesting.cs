@@ -69,12 +69,12 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             return res;
         }
 
-        public List<IProduct> OpenProductList(int time, ResouceState r, IConOL cl)
+        public List<IProduct> OpenProductList(int time, MetaResouceState r, IConOL cl)
         {
             return (cl as CnNestingOL).OpenProductList(r);
         }
 
-        public List<Ticket> PrintTickets(ResouceState rs, List<IProduct> pro, IConOL cl)
+        public List<Ticket> PrintTickets(MetaResouceState rs, List<IProduct> pro, IConOL cl)
         {
             //(cl as CnNestingOL).NeedToRefresh.Clear();
             List<Ticket> res = new List<Ticket>();
@@ -89,12 +89,12 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             return res;
         }
     }
-    //在线控制
+    //在线控制器
     public class CnNestingOL : IConOL
     {
         internal List<Bucket> NeedToRefresh = new List<Bucket>();
         internal List<BucketGroup> TrainGroupList = new List<BucketGroup>();
-        internal List<IProduct> OpenProductList(ResouceState r)
+        internal List<IProduct> OpenProductList(MetaResouceState r)
         {
             List<IProduct> prolist = new List<IProduct>();
             foreach (BucketGroup tg in TrainGroupList)
@@ -103,7 +103,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             }
             return prolist;
         }
-        public void Update(ResouceState r)
+        public void Update(MetaResouceState r)
         {
             //完成所有更新
             foreach (Bucket b in NeedToRefresh)
@@ -120,7 +120,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         internal List<IProduct> ProList = new List<IProduct>(); //所有能出售的产品
         internal List<IProduct> OpenProduct = new List<IProduct>();
         //查找最零散的可售产品
-        private List<IMetaResource> getMetaRes(ResouceState r, IProduct p)
+        private List<IMetaResource> getMetaRes(MetaResouceState r, IProduct p)
         {
             List<IMetaResource> res = new List<IMetaResource>();
             //找到出售一个产品的资源，如果不可售返回空
@@ -138,7 +138,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             return res;
         }
         //刷新开放产品
-        internal void RefreshOpenProduct(ResouceState r)
+        internal void RefreshOpenProduct(MetaResouceState r)
         {
             OpenProduct.Clear();
             //遍历所有能出售的产品
@@ -153,7 +153,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             }
         }
         //出票
-        internal Ticket PrintTicket(ResouceState r, IProduct p)
+        internal Ticket PrintTicket(MetaResouceState r, IProduct p)
         {
             return new Ticket() { MetaResList = getMetaRes(r, p) };
         }
@@ -167,7 +167,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         internal List<IProduct> ProList = new List<IProduct>(); //所有能出售的产品
 
         //当前开放的产品
-        internal List<IProduct> OpenProduct(ResouceState r)
+        internal List<IProduct> OpenProduct(MetaResouceState r)
         {
             List<IProduct> prolist = new List<IProduct>();
             prolist = prolist.Union(LBucket.OpenProduct).ToList();
@@ -178,7 +178,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             return prolist;
         }
         //出票
-        internal Ticket PrintTicket(ResouceState r, IProduct p, out List<Bucket> Rf)
+        internal Ticket PrintTicket(MetaResouceState r, IProduct p, out List<Bucket> Rf)
         {
             Rf = new List<Bucket>();
             Ticket res = new Ticket();

@@ -41,7 +41,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         public IMarket MarketInfo { get; set; }
         //public IResourceSet ResourceSpace { get; set; }
         public IController Controller { get; set; }
-        public ResouceState InitState { get; set; }
+        public MetaResouceState InitState { get; set; }
 
         #region SetOut
         private TextWriter m_TextWriter;
@@ -210,33 +210,33 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         }
         public bool Process(PrimalArrivalList arr, out SellingRecordList Srlist, out ControlRecordList Crlist)
         {
+            //初始化记录
+            Srlist = new SellingRecordList() { PAL = arr };
+            Crlist = new ControlRecordList() { PAL = arr };
+            //初始化资源
+            MetaResouceState rs = new MetaResouceState(InitState);
+            //生成动态策略
             IConOL conol = Controller.GenConOL();
-            Srlist = new SellingRecordList();
-            Crlist = new ControlRecordList();
-            Srlist.PAL = arr; Crlist.PAL = arr;
-
-            ResouceState rs = new ResouceState(InitState);
             if (conol != null) conol.Update(rs);
-            List<IProduct> openProductList = Controller.OpenProductList(0, rs, conol);
+
+            List<IProduct> openProductList = Controller.OpenProductList(0, rs, conol);//初始开放产品
             Crlist.UpdateOpenProducts(0, openProductList);
-            for (int i = 0; i < arr.Count; i++)
+            for (int i = 0; i < arr.Count; i++)//顺序读取到达列表
             {
                 //生成开放产品集
                 openProductList = Controller.OpenProductList(arr[i].ArriveTime, rs, conol);
                 //模拟旅客购票
                 List<IProduct> pro = (MarketInfo[arr[i].IndexOfMS] as IChoiceAgent).Select(openProductList, rng.NextDouble());
-                if (pro != null)
-                {
-                    //出票
-                    List<Ticket> tickets = Controller.PrintTickets(rs, pro, conol);
-                    //更新资源状态
-                    rs.UpdateAfterSelling(tickets);
-                    if(conol!=null)conol.Update(rs);
-                    //记录产品情况
-                    Crlist.UpdateOpenProducts(arr[i].ArriveTime, openProductList);
-                    //加入SellingRecordList
-                    Srlist.AddRecord(arr[i].ArriveTime, arr[i], pro,tickets);
-                }
+                if (pro == null) continue;                
+                //出票
+                List<Ticket> tickets = Controller.PrintTickets(rs, pro, conol);
+                //更新资源状态
+                rs.UpdateAfterSelling(tickets);
+                if(conol!=null)conol.Update(rs);
+                //记录产品情况
+                Crlist.UpdateOpenProducts(arr[i].ArriveTime, openProductList);
+                //加入SellingRecordList
+                Srlist.AddRecord(arr[i].ArriveTime, arr[i], pro,tickets);               
             }
             return true;
         }
