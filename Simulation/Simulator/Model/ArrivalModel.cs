@@ -23,6 +23,8 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         public int IndexOfMS { get; set; }
         //public IMarketSegment MS { get; set; }
 
+        public double ChoosingParam { get; set; }
+
         public PrimalArrival()
         {
 
@@ -32,6 +34,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             string[] ss = s.Split(new char[] { ',' });
             this.ArriveTime = Convert.ToInt32(ss[0]);
             this.IndexOfMS = Convert.ToInt32(ss[1]);
+            this.ChoosingParam = Convert.ToDouble(ss[2]);
         }
 
         #region 实现XML序列化
@@ -55,7 +58,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
 
         public override string ToString()
         {
-            return this.ArriveTime + "," + IndexOfMS;
+            return this.ArriveTime + "," + IndexOfMS+","+ ChoosingParam;
         }
     }
     /// <summary>

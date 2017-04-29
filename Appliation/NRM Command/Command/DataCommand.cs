@@ -216,7 +216,6 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             warpper.bookSim.InitState = warpper.da.InitState;
             warpper.bookSim.SimTextWriter = Console.Out;
             warpper.bookSim.NumOfThreads = NumberOfThreads;
-
             warpper.bookSim.BatchProcess(inputPath, outputPath);
          
         }

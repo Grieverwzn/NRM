@@ -18,7 +18,10 @@ namespace com.foxmail.wyyuan1991.NRM.Common
             {
                 MetaResDic.Add(r, rs.MetaResDic[r]);
             }
-            UpdateResDic();
+            foreach (IResource r in rs.ResDic.Keys)
+            {
+                ResDic[r] = r.MetaResList.Sum(i => MetaResDic[i] ? 0 : 1);
+            }
         }
         public MetaResouceState()
         {

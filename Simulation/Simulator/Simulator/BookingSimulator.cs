@@ -36,7 +36,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         #endregion 
         //增加配置输入输出等信息
 
-        System.Random rng = SystemRandomSource.Default;//随机数发生器
+        //System.Random rng = SystemRandomSource.Default;//随机数发生器
 
         public IMarket MarketInfo { get; set; }
         //public IResourceSet ResourceSpace { get; set; }
@@ -226,7 +226,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
                 //生成开放产品集
                 openProductList = Controller.OpenProductList(arr[i].ArriveTime, rs, conol);
                 //模拟旅客购票
-                List<IProduct> pro = (MarketInfo[arr[i].IndexOfMS] as IChoiceAgent).Select(openProductList, rng.NextDouble());
+                List<IProduct> pro = (MarketInfo[arr[i].IndexOfMS] as IChoiceAgent).Select(openProductList, arr[i].ChoosingParam);
                 if (pro == null) continue;                
                 //出票
                 List<Ticket> tickets = Controller.PrintTickets(rs, pro, conol);

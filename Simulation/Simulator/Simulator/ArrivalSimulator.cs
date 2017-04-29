@@ -82,15 +82,17 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
             {
                 double u1 = rng.NextDouble();
                 double u2 = rng.NextDouble();
+                double u3 = rng.NextDouble();
                 //t = (int)Math.Ceiling(t - (1 / MaxLamada) * Math.Log(u1));//这里向上取整，可能会影响结果。
                 //if ((u2 <= (MarketInfo.Ro(t) / MaxLamada)) && t < TimeHorizon)
-                if(u1<MarketInfo.Ro(t))
+                if (u1<MarketInfo.Ro(t))
                 {
                     //double u3 = rng.NextDouble();
                     PrimalArrival temp = new PrimalArrival()
                     {
                         ArriveTime = t,
-                        IndexOfMS = rollMS(t, u2).MSID
+                        IndexOfMS = rollMS(t, u2).MSID,
+                        ChoosingParam=u3
                     };
                     arr.Add(temp);
                 }
