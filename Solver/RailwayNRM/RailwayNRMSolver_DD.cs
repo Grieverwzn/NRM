@@ -527,18 +527,21 @@ namespace com.foxmail.wyyuan1991.NRM.RailwaySolver
             deci_a = null;
 
             #region  贪婪算法求解组合优化问题
-            List<IProduct> list = (Data.ProSpace as List<Product>).Where(j =>
-            {
-                double w = bidprice(t, j);
-                if (j.Fare < w)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }).ToList<IProduct>();//优先关闭机会成本低的产品
+            List<IProduct> list = (Data.ProSpace as List<Product>).ToList<IProduct>();
+            /* 优先关闭机会成本低的产品，但是由于换乘不能这样。
+            //List <IProduct> list = (Data.ProSpace as List<Product>).Where(j =>
+            //{
+            //    double w = bidprice(t, j);
+            //    if (j.Fare < w)
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        return true;
+            //    }
+            //}).ToList<IProduct>();
+            */
             List<IProduct> tempDecision = new List<IProduct>();//开放产品集合
             //加入第一个元素
             IProduct tempProduct = null;

@@ -179,6 +179,14 @@ namespace com.foxmail.wyyuan1991.NRM.RailwayModel
         //    double c = l.Retreat;
         //    return a / (b + c);
         //}
+
+        /// <summary>
+        /// The possibility of a passenger from Seg I choosing Route r under centain open product set 
+        /// </summary>
+        /// <param name="l">MarketSegment</param>
+        /// <param name="r">Route</param>
+        /// <param name="openset">Set of open products</param>
+        /// <returns></returns>
         public double Piks(MarketSegment l, Route r, HashSet<IProduct> openset)
         {
             double a = l.ConsiderationDic.ContainsKey(r) ? l.ConsiderationDic[r] : 0;

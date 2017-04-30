@@ -9,6 +9,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
     {
         static void Main(string[] args)
         {
+            
             //初始化容器
             Warpper warpper = new Warpper();
             Factory factory = Factory.GetInstance(warpper);          
@@ -57,4 +58,5 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             }
         }
     }
+
 }

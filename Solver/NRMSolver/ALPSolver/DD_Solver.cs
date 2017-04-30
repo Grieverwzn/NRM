@@ -22,7 +22,7 @@ namespace com.foxmail.wyyuan1991.NRMSolver
         protected Dictionary<int, INumVar> AggVar2;
         protected INumVar[] CenterVar1;//中间变量
         protected INumVar CenterVar2;
-        //值
+        //变量值
         protected Dictionary<int, double[]> DisV;
         protected Dictionary<int, double> DisSita;
         protected Dictionary<int, double[]> AggV;
@@ -32,7 +32,7 @@ namespace com.foxmail.wyyuan1991.NRMSolver
         //约束集合
         protected Dictionary<int, Dictionary<IALPDecision, IRange>> DisConstraints;
         protected Dictionary<int, Dictionary<IALPDecision, IRange>> AggConstraints;
-        protected IRange[] AggCenterRange1;
+        protected IRange[] AggCenterRange1;//连接约束
         protected IRange AggCenterRange2;
         protected IRange[] DisCenterRange1;
         protected IRange DisCenterRange2;
@@ -126,158 +126,6 @@ namespace com.foxmail.wyyuan1991.NRMSolver
                 }
             }
         }
-
-        //protected abstract void InitRMPModel();
-        ////{
-        ////    #region //////////////初始化变量//////////////
-        ////    InitVariables();
-        ////    for (int i = alpha; i <= Data.TimeHorizon - 1; i++)
-        ////    {
-        ////        Add_Dis_Vars(i);
-        ////    }
-        ////    #endregion
-
-        ////    #region //////////////生成目标//////////////
-        ////    INumExpr exp5 = RMPModel.NumExpr();
-        ////    exp5 = RMPModel.Sum(exp5, AggVar2[0]);
-        ////    foreach (IALPResource re in Data.RS)
-        ////    {
-        ////        exp5 = RMPModel.Sum(exp5, RMPModel.Prod((Data.InitialState as IALPState)[re], AggVar1[0][Data.RS.IndexOf(re)]));
-        ////    }
-        ////    IObjective cost = RMPModel.AddMinimize(exp5);
-        ////    #endregion
-
-        ////    #region //////////////生成基本约束//////////////
-        ////    for (int t = alpha + 1; t < Data.TimeHorizon; t++)
-        ////    {
-        ////        if (t < Data.TimeHorizon - 1)
-        ////        {
-        ////            Add_Dis_Squ_Constraint(t);
-        ////        }
-        ////    }
-        ////    #endregion
-
-        ////    RMPModel.SetOut(null);
-        ////}
-
-        //protected void Add_Dis_Squ_Constraint(int t)
-        //{
-        //    foreach (IALPResource re in Data.RS)
-        //    {
-        //        INumExpr exp2 = RMPModel.Sum(DisVar1[t][Data.RS.IndexOf(re)], RMPModel.Prod(-1, DisVar1[t + 1][Data.RS.IndexOf(re)]));
-        //        RMPModel.AddGe(exp2, 0);
-        //    }
-        //    INumExpr exp3 = RMPModel.Sum(DisVar2[t], RMPModel.Prod(-1, DisVar2[t + 1]));
-        //    RMPModel.AddGe(exp3, 0);
-        //}
-        //protected void Add_Dis_Vars(int i)
-        //{
-        //    DisConstraints.Add(i, new Dictionary<IALPDecision, IRange>());
-        //    DisVar1.Add(i, RMPModel.NumVarArray(Data.RS.Count, 0, double.MaxValue));
-        //    DisVar2.Add(i, RMPModel.NumVar(0, double.MaxValue));
-        //    DisV.Add(i, new double[Data.RS.Count]);
-        //    DisSita.Add(i, 0);
-        //}
-
-
-
-        //protected virtual bool Dis_CG(int t, out IALPDecision deci_a)
-        //{
-        //    deci_a = null;
-        //    double temp = 0;
-        //    foreach (IALPDecision d in Data.DS)
-        //    {
-        //        double temp1 = 0;
-        //        if (t < Data.TimeHorizon - 1)
-        //        {
-        //            temp1 += DisSita[t] - DisSita[t + 1];
-        //            foreach (IALPResource re in Data.RS)
-        //            {
-        //                if (d.UseResource(re))
-        //                {
-        //                    temp1 += DisV[t][Data.RS.IndexOf(re)] +
-        //                       DisV[t + 1][Data.RS.IndexOf(re)] * (Data.Qti(t, re, d) - 1);
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            temp1 += DisSita[t];
-        //            foreach (IALPResource re in Data.RS)
-        //            {
-        //                if (d.UseResource(re))
-        //                {
-        //                    temp1 += DisV[t][Data.RS.IndexOf(re)];
-        //                }
-        //            }
-        //        }
-        //        temp1 = Data.Rt(t, d) - temp1;
-        //        if (temp1 > temp)
-        //        {
-        //            deci_a = d;
-        //            temp = temp1;
-        //        }
-        //    }
-        //    if (temp <= Tolerance || DisConstraints[t].ContainsKey(deci_a))
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
-
-        //    for (int t = alpha + 1; t < Data.TimeHorizon; t++)
-        //    {
-        //        if (DisConstraints[t].Count() < Data.RS.Count * 1.2) continue;
-        //        tempDis.Add(t, new Dictionary<IALPDecision, IRange>());
-        //        foreach (IALPDecision d in DisConstraints[t].Keys)
-        //        {
-        //            if (RMPModel.GetSlack(DisConstraints[t][d]) > 0)
-        //            {
-        //                tempDis[t].Add(d, DisConstraints[t][d]);
-        //            }
-        //        }
-        //    }
-        //    foreach (var pair in tempAgg)
-        //    {
-        //        foreach (var child in tempAgg[pair.Key])
-        //        {
-        //            RMPModel.Remove(child.Value);
-        //            AggConstraints[pair.Key].Remove(child.Key);
-        //        }
-        //    }
-        //    foreach (var pair in tempDis)
-        //    {
-        //        foreach (var child in tempDis[pair.Key])
-        //        {
-        //            RMPModel.Remove(child.Value);
-        //            DisConstraints[pair.Key].Remove(child.Key);
-        //        }
-        //    }
-        //}
-        //public virtual bool TestValidation()
-        //{
-        //    bool Val = true;
-        //    //double[][] R = Rotate(BidPrice);
-        //    int[] tp = findturnningpoint();
-        //    foreach (IALPResource re in Data.RS)
-        //    {
-        //        if (tp[Data.RS.IndexOf(re)] > alpha + 1)
-        //        {
-        //            print("资源{0}的拐点是: {1}", Data.RS.IndexOf(re), tp[Data.RS.IndexOf(re)]);
-        //        }
-        //        else
-        //        {
-        //            Val = false;
-        //            print("资源{0}无有效拐点", Data.RS.IndexOf(re), tp[Data.RS.IndexOf(re)]);
-        //        }
-        //    }
-        //    return Val;
-        //}
-
     }
 }
 
