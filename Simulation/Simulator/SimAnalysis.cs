@@ -1,4 +1,5 @@
 ﻿using com.foxmail.wyyuan1991.NRM.Common;
+using com.foxmail.wyyuan1991.NRM.RailwayModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -68,17 +69,17 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
                 },
                 IsAvg = true
             });
-            //this.IndexList.Add(new SimStatic()
-            //{
-            //    Name = "资源剩余比例",
-            //    Cal = (PrimalArrivalList pal, SellingRecordList srl, ControlRecordList crl) =>
-            //    {
-            //        double b = this.ResourceSpace.Sum(i => i.Capacity);
-            //        double a = srl.Sum(i => i.Product.Sum(j => j.Count()));
-            //        return (b - a) / b;
-            //    },
-            //    IsAvg = true
-            //});
+            this.IndexList.Add(new SimStatic()
+            {
+                Name = "资源剩余比例",
+                Cal = (PrimalArrivalList pal, SellingRecordList srl, ControlRecordList crl) =>
+                {
+                    double b = this.ResourceSpace.Sum(i => this.InitState.ResDic[i]);
+                    double a = srl.Sum(i => i.Product.Sum(j => j.Count()));
+                    return (b - a) / b;
+                },
+                IsAvg = true
+            });
             //this.IndexList.Add(new SimStatic()
             //{
             //    Name = "剩余资源列表",
@@ -117,6 +118,7 @@ namespace com.foxmail.wyyuan1991.NRM.Simulator
         public IMarket MarketInfo { get; set; }
         public IResourceSet ResourceSpace { get; set; }
         public IProductSet ProSpace { get; set; }
+        public MetaResouceState InitState { get; set; }
 
         public List<SimStatic> IndexList = new List<SimStatic>();
 

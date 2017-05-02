@@ -22,8 +22,8 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             }
 #if DEBUG
             //cur = @"read -p C:\Users\yuanwuyang\Desktop\Net2.xls;arr -p C:\Users\yuanwuyang\Desktop\arr -n 20;cnn -i C:\Users\yuanwuyang\Desktop\arr -o C:\Users\yuanwuyang\Desktop\CNN -c C:\Users\yuanwuyang\Desktop\CNN.txt";
-            cur = @"read -p C:\Users\yuanwuyang\Desktop\Net1.xls;gen -p C:\Users\yuanwuyang\Desktop\Net1.txt; arr -p C:\Users\yuanwuyang\Desktop\arr -n 20;sim -i C:\Users\yuanwuyang\Desktop\arr -o C:\Users\yuanwuyang\Desktop\BPC -c C:\Users\yuanwuyang\Desktop\Net1.txt;oac -i C:\Users\yuanwuyang\Desktop\arr -o C:\Users\yuanwuyang\Desktop\OAC";
-            //cur = @"read -p C:\Users\yuanwuyang\Desktop\Net1.xls;anahead -o C:\Users\yuanwuyang\Desktop\res.txt;ana -i C:\Users\yuanwuyang\Desktop\arr -s C:\Users\yuanwuyang\Desktop\OAC\Sell -c C:\Users\yuanwuyang\Desktop\OAC\Control -o C:\Users\yuanwuyang\Desktop\res.txt";
+            //cur = @"read -p C:\Users\yuanwuyang\Desktop\Net1.xls;gen -p C:\Users\yuanwuyang\Desktop\Net1.txt; arr -p C:\Users\yuanwuyang\Desktop\arr -n 20;sim -i C:\Users\yuanwuyang\Desktop\arr -o C:\Users\yuanwuyang\Desktop\BPC -c C:\Users\yuanwuyang\Desktop\Net1.txt;oac -i C:\Users\yuanwuyang\Desktop\arr -o C:\Users\yuanwuyang\Desktop\OAC";
+            cur = @"read -p C:\Users\yuanwuyang\Desktop\Net1.xls;anahead -o C:\Users\yuanwuyang\Desktop\res.txt;ana -i C:\Users\yuanwuyang\Desktop\arr -s C:\Users\yuanwuyang\Desktop\OAC\Sell -c C:\Users\yuanwuyang\Desktop\OAC\Control -o C:\Users\yuanwuyang\Desktop\res.txt";
 #endif
             while (cur != "" || (cur = Console.ReadLine()) != "exit")
             {

@@ -331,6 +331,7 @@ namespace com.foxmail.wyyuan1991.NRM.Command
             warpper.SA.MarketInfo = warpper.da.MarketInfo;
             warpper.SA.ResourceSpace = warpper.da.RS as IResourceSet;
             warpper.SA.ProSpace = warpper.da.ProSpace as IProductSet;
+            warpper.SA.InitState = warpper.da.InitState;
             warpper.SA.NumOfThreads = NumberOfThreads;
             warpper.SA.Dowork(arrPath, srPath, crPath,outPath);
 
